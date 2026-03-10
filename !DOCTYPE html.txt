@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 7 Months!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary-pink: #ff8fab;
+            --soft-white: #fff0f3;
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--soft-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-pink);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .heart {
+            color: #ff4d6d;
+            font-size: 3rem;
+            animation: beat 1s infinite alternate;
+        }
+
+        @keyframes beat {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-top: 2px solid var(--soft-white);
+            font-weight: bold;
+            color: #ff758f;
+        }
+
+        button {
+            margin-top: 2rem;
+            padding: 12px 24px;
+            border: none;
+            background-color: var(--primary-pink);
+            color: white;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff758f;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Happy 7th Monthsary!</h1>
+        <p>They say time flies when you're having fun, and the last 7 months have been the best proof of that. Thank you for being my person.</p>
+        
+        <div class="stats">
+            213 Days of Us & Counting
+        </div>
+
+        <button onclick="fireConfetti()">Celebrate Again!</button>
+    </div>
+
+    <script>
+        // Automatic confetti on load
+        window.onload = function() {
+            fireConfetti();
+        };
+
+        function fireConfetti() {
+            const duration = 3 * 1000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff8fab', '#ffb3c1']
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff8fab', '#ffb3c1']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
